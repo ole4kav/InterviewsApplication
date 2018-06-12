@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">InterviewsApplication</string>
+    <string name="library_title">Select File</string>
+    <string name="gallery_type">image/*</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="dot">.</string>
+</resources>
