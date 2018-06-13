@@ -24,22 +24,34 @@ public class ListPresenter implements ListInterface.Presenter, SentencesAdapter.
     @Override
     public void addBtnPressed(Context context) {
         arrayList.add("test");
-        buildList(context, arrayList);
+        buildSentList(context, arrayList);
     }
 
     @Override
     public void screenCreated(Context context) {
         arrayList = sentencesList.buildList();
-        buildList(context, arrayList);
+        buildSentList(context, arrayList);
     }
 
-    private void buildList(Context context, ArrayList<String> nArrayList) {
+    private void buildSentList(Context context, ArrayList<String> arrayList) {
+        ////ArrayList<String> arrayList = buildTmpSentList();
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context,
                 LinearLayoutManager.VERTICAL);
-        adapter = new SentencesAdapter(context, nArrayList);
+        adapter = new SentencesAdapter(context, arrayList);
         adapter.setClickListener(this);
-        view.showList(nArrayList, dividerItemDecoration, adapter);
+        view.showList(arrayList, dividerItemDecoration, adapter);
     }
+
+/*
+    private ArrayList<String> buildTmpSentList() {
+        ArrayList tmpListSentList = new ArrayList();
+        tmpListSentList.add(new TmpSentence("Example 1"));
+        tmpListSentList.add(new TmpSentence("Example 2"));
+        tmpListSentList.add(new TmpSentence("Example 3"));
+        return tmpListSentList;
+    }
+     */
+
 
     @Override
     public void onItemClick(View mView, int position) {
